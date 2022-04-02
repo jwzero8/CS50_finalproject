@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Leave your words!
+{% endblock %}
+{% block main %}
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Comment board</title>
+    </head>
+    <body>
+        <div class="header">
+            <h4 style="color:#DC143C">Welcome, today is {{ date }}! </h4>
+        </div>
+
+            <div class="section">
+
+                <h4 style="color:indigo">Your comment</h4>
+            <form action = "/comment" method = "post">
+            <div class="form-group">
+                <strong><i><label for="exampleFormControlInput1">Title</label><strong>
+                <input type="email" class="form-control" id="title" placeholder="Title"><i>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Content</label>
+                <textarea class="form-control" id="content" placeholder="Leave your message here：）"rows="2"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Contact</label>
+                <textarea class="form-control" id="contact" placeholder="e.g. Email: jwzero8@gmail.com  Instagram: @aldenshoeco" rows="1"></textarea>
+            </div>
+                <input type="submit" value="submit">
+            </form>
+            <br>
+            <br>
+            <p style="color:tomato">All comments</p>
+                <table table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Content</th>
+                            <th>Contact</th>
+                            <th>Date Posted</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for comment in comments%}
+                            <tr>
+                                <td>{{ comment.title }}</td>
+                                <td>{{ comment.content}}</td>
+                                <td>{{ comment.contact}}</td>
+                                <td>{{ comment.date }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}

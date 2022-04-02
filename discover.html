@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your portfolio :D
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:indigo"> Hi there, let's take a look at wishes </h2>
+    <h3 style="color:#DC143C"> Comment in the discussion board if you want! (leave a unique username at your discretion)</h3>
+    <h5 style="color:pink"> Maybe leave your contact if you are really interested! (and see whether they will reply to you:D)</h5>
+    <br><br>
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">A Wish of one of the users</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        <tr>
+            <td>{{ wish }}</td>
+        </tr>
+  </tbody>
+</table>
+
+    <!--form action="/buy" method="post" -->
+    <!-- /form -->
+
+    <form action="/comment" method="get">
+        <button class="btn btn-primary">Discussion board</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Welcome to update your status! {{username}}
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:salmon"> Please update your wish here! </h2>
+    <h4 style="color:indigo"> Note: Enter a valid wish ID by taking look at the index page :D</h4>
+    <h5 style="color:#FF3333"> Note: Wish can't be deleted. Only updates are allowed. </h5>
+    <h5 style="color:green"> I believe everyone can make their dreams come true as long as you never give up! </h5>
+
+    <form action="/update" method="post">
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Content</label>
+            <textarea class="form-control" name="update" placeholder="Leave notes for yourself:)" rows="2"></textarea>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="id" placeholder="Wish_ID" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+        <br><br>
+    </form>
+    <br>
+{% endblock %}

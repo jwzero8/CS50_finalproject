@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your wish list
+{% endblock %}
+
+{% block main %}
+    <h2 style="color:indigo"> Your wishes' details: </h2>
+    <br><br>
+    <table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Type</th>
+      <th scope="col">Wish_ID</th>
+      <th scope="col">Content</th>
+      <th scope="col">Wish done?</th>
+
+    </tr>
+  </thead>
+  <tbody>
+        {% for wish in wishes %}
+        <tr>
+            <td>{{ wish["date"] }}</td>
+            <td>{{ wish["type_id"] }}</td>
+            <td>{{ wish["id"] }}</td>
+            <td>{{ wish["content"] }}</td>
+            <td>{{ wish["wish_done"] }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr style="color:salmon">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td >Wish to be done</td>
+            <td>{{ wish_number }}</td>
+        </tr>
+  </tbody>
+</table>
+
+    <!--form action="/buy" method="post" -->
+    <form action="/done" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="id" placeholder="Wish_ID" type="number">
+        </div>
+        <div class="mb-3">
+        <button class="btn btn-primary" type="submit">Mark it done!</button>
+        </div>
+    </form>
+    <!-- /form -->
+{% endblock %}
